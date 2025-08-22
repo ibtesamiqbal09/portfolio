@@ -26,9 +26,16 @@ export async function setupVite(app: Express, server: Server) {
     allowedHosts: true as const,
   };
 
+  const mode = process.env.NODE_ENV || "development";
+  const userConfig =
+    typeof (viteConfig as any) === "function"
+      ? await (viteConfig as any)({ mode, command: "serve" })
+      : (viteConfig as any);
+
   const vite = await createViteServer({
-    ...viteConfig,
+    ...userConfig,
     configFile: false,
+    root: userConfig?.root ?? new URL("../client", import.meta.url).pathname,
     customLogger: {
       ...viteLogger,
       error: (msg, options) => {
