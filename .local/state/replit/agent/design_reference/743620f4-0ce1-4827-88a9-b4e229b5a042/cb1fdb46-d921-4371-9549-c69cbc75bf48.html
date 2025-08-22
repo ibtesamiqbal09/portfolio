@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Ibtesam - Computer Science Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace']
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a'
+                        },
+                        accent: {
+                            green: '#10b981',
+                            purple: '#8b5cf6',
+                            cyan: '#06b6d4'
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+        .skill-bar {
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            border-radius: 9999px;
+            height: 8px;
+            transition: width 2s ease-in-out;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+        .tech-badge {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl font-bold text-primary-500">Muhammad Ibtesam</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-slate-300 hover:text-primary-500 transition-colors duration-300">About</a>
+                    <a href="#education" class="text-slate-300 hover:text-primary-500 transition-colors duration-300">Education</a>
+                    <a href="#skills" class="text-slate-300 hover:text-primary-500 transition-colors duration-300">Skills</a>
+                    <a href="#projects" class="text-slate-300 hover:text-primary-500 transition-colors duration-300">Projects</a>
+                    <a href="#experience" class="text-slate-300 hover:text-primary-500 transition-colors duration-300">Experience</a>
+                    <a href="#achievements" class="text-slate-300 hover:text-primary-500 transition-colors duration-300">Achievements</a>
+                    <a href="#contact" class="text-slate-300 hover:text-primary-500 transition-colors duration-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-primary-500">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-t border-slate-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#about" class="block px-3 py-2 text-slate-300 hover:text-primary-500">About</a>
+                <a href="#education" class="block px-3 py-2 text-slate-300 hover:text-primary-500">Education</a>
+                <a href="#skills" class="block px-3 py-2 text-slate-300 hover:text-primary-500">Skills</a>
+                <a href="#projects" class="block px-3 py-2 text-slate-300 hover:text-primary-500">Projects</a>
+                <a href="#experience" class="block px-3 py-2 text-slate-300 hover:text-primary-500">Experience</a>
+                <a href="#achievements" class="block px-3 py-2 text-slate-300 hover:text-primary-500">Achievements</a>
+                <a href="#contact" class="block px-3 py-2 text-slate-300 hover:text-primary-500">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-20 w-72 h-72 bg-primary-500 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
+            <div class="absolute top-40 right-20 w-72 h-72 bg-accent-purple rounded-full mix-blend-multiply filter blur-xl animate-float" style="animation-delay: 2s;"></div>
+            <div class="absolute bottom-20 left-40 w-72 h-72 bg-accent-green rounded-full mix-blend-multiply filter blur-xl animate-float" style="animation-delay: 4s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="animate-fade-in">
+                <!-- Professional headshot placeholder -->
+                <!-- Modern portrait of a computer science student at a tech workspace -->
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&h=300" alt="Muhammad Ibtesam" class="w-32 h-32 rounded-full mx-auto mb-8 border-4 border-primary-500 shadow-xl" />
+                
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="text-slate-100">Muhammad</span>
+                    <span class="text-primary-500"> Ibtesam</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-300 mb-8 font-mono">Computer Science Student</p>
+                <p class="text-lg md:text-xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    Passionate about web development, AI, and mobile app development. 
+                    Dedicated to solving real-world problems through innovative, efficient, and impactful technology solutions.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#projects" class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-code mr-2"></i>View My Work
+                    </a>
+                    <a href="#contact" class="border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-envelope mr-2"></i>Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">About <span class="text-primary-500">Me</span></h2>
+                <p class="text-slate-400 text-lg max-w-3xl mx-auto">
+                    Driven by curiosity and passion for technology, I'm constantly exploring new ways to innovate and create meaningful solutions.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-slate-100 mb-4">Professional Profile</h3>
+                    <p class="text-slate-300 leading-relaxed text-lg">
+                        I'm a passionate Computer Science student focused on web development, AI, and mobile app development. 
+                        My expertise lies in solving real-world problems through innovative, efficient, and impactful projects.
+                    </p>
+                    <p class="text-slate-300 leading-relaxed text-lg">
+                        Dedicated to continuous learning and applying technology to improve everyday life. 
+                        I believe in the power of code to transform ideas into reality and create solutions that matter.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="text-center p-4 bg-slate-700 rounded-lg">
+                            <div class="text-2xl font-bold text-primary-500 mb-2">2025</div>
+                            <div class="text-slate-400">Expected Graduation</div>
+                        </div>
+                        <div class="text-center p-4 bg-slate-700 rounded-lg">
+                            <div class="text-2xl font-bold text-accent-green mb-2">6+</div>
+                            <div class="text-slate-400">Certifications</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Computer science student coding at modern workspace -->
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" alt="Modern tech workspace" class="rounded-xl shadow-2xl w-full h-auto" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent rounded-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Education <span class="text-primary-500">Journey</span></h2>
+                <p class="text-slate-400 text-lg max-w-3xl mx-auto">
+                    Building a strong foundation in computer science and technology through rigorous academic pursuit.
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-primary-500"></div>
+                
+                <div class="space-y-12">
+                    <!-- University Education -->
+                    <div class="relative flex items-center justify-between">
+                        <div class="flex-1 pr-8 text-right">
+                            <div class="bg-slate-800 p-6 rounded-lg card-hover">
+                                <h3 class="text-xl font-bold text-slate-100 mb-2">BS in Computer Science</h3>
+                                <p class="text-primary-500 font-semibold mb-2">National University of Sciences & Technology</p>
+                                <p class="text-slate-400 mb-4">Expected 2025 | Islamabad, Pakistan</p>
+                                <div class="flex flex-wrap gap-2 justify-end">
+                                    <span class="tech-badge px-3 py-1 rounded-full text-sm text-primary-400">Computer Science</span>
+                                    <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-green">Software Engineering</span>
+                                    <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-purple">AI & ML</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="relative z-10 w-4 h-4 bg-primary-500 rounded-full border-4 border-slate-900"></div>
+                        
+                        <div class="flex-1 pl-8"></div>
+                    </div>
+
+                    <!-- A-Levels -->
+                    <div class="relative flex items-center justify-between">
+                        <div class="flex-1 pr-8"></div>
+                        
+                        <div class="relative z-10 w-4 h-4 bg-accent-green rounded-full border-4 border-slate-900"></div>
+                        
+                        <div class="flex-1 pl-8">
+                            <div class="bg-slate-800 p-6 rounded-lg card-hover">
+                                <h3 class="text-xl font-bold text-slate-100 mb-2">Intermediate / A-Levels</h3>
+                                <p class="text-accent-green font-semibold mb-2">Completed 2021</p>
+                                <p class="text-slate-400">Foundation in Mathematics, Physics, and Computer Science</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- O-Levels -->
+                    <div class="relative flex items-center justify-between">
+                        <div class="flex-1 pr-8 text-right">
+                            <div class="bg-slate-800 p-6 rounded-lg card-hover">
+                                <h3 class="text-xl font-bold text-slate-100 mb-2">Matric / O-Levels</h3>
+                                <p class="text-accent-purple font-semibold mb-2">Completed 2019</p>
+                                <p class="text-slate-400">Strong foundation in core academic subjects</p>
+                            </div>
+                        </div>
+                        
+                        <div class="relative z-10 w-4 h-4 bg-accent-purple rounded-full border-4 border-slate-900"></div>
+                        
+                        <div class="flex-1 pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Technical <span class="text-primary-500">Skills</span></h2>
+                <p class="text-slate-400 text-lg max-w-3xl mx-auto">
+                    Continuously expanding my technical toolkit to build innovative solutions across multiple domains.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Programming & Tools -->
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-700">
+                    <h3 class="text-2xl font-bold text-slate-100 mb-8 flex items-center">
+                        <i class="fas fa-code text-primary-500 mr-3"></i>
+                        Programming & Tools
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-slate-300 font-medium">Python</span>
+                                <span class="text-primary-500 font-mono text-sm">90%</span>
+                            </div>
+                            <div class="bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar w-[90%]"></div>
+                            </div>
+                            <div class="mt-2 flex flex-wrap gap-2">
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">NumPy</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Pandas</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">TensorFlow</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Scikit-learn</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-slate-300 font-medium">Web Development</span>
+                                <span class="text-primary-500 font-mono text-sm">85%</span>
+                            </div>
+                            <div class="bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar w-[85%]"></div>
+                            </div>
+                            <div class="mt-2 flex flex-wrap gap-2">
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">HTML/CSS</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">JavaScript</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Django</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Flask</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-slate-300 font-medium">Database & Cloud</span>
+                                <span class="text-primary-500 font-mono text-sm">80%</span>
+                            </div>
+                            <div class="bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar w-[80%]"></div>
+                            </div>
+                            <div class="mt-2 flex flex-wrap gap-2">
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">MySQL</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">MongoDB</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">AWS</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Docker</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-slate-300 font-medium">Mobile & Version Control</span>
+                                <span class="text-primary-500 font-mono text-sm">75%</span>
+                            </div>
+                            <div class="bg-slate-700 rounded-full h-2">
+                                <div class="skill-bar w-[75%]"></div>
+                            </div>
+                            <div class="mt-2 flex flex-wrap gap-2">
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Flutter</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">Git</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">GitHub</span>
+                                <span class="text-xs text-slate-400 bg-slate-800 px-2 py-1 rounded">CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-700">
+                    <h3 class="text-2xl font-bold text-slate-100 mb-8 flex items-center">
+                        <i class="fas fa-lightbulb text-accent-green mr-3"></i>
+                        Soft Skills
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-slate-300 font-medium">Problem Solving</span>
+                                <span class="text-accent-green font-mono text-sm">95%</span>
+                            </div>
+                            <div class="bg-slate-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-accent-green to-primary-500 rounded-full h-2 w-[95%]"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-slate-300 font-medium">Communication Skills</span>
+                                <span class="text-accent-green font-mono text-sm">90%</span>
+                            </div>
+                            <div class="bg-slate-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-accent-green to-primary-500 rounded-full h-2 w-[90%]"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-slate-300 font-medium">Project Management</span>
+                                <span class="text-accent-green font-mono text-sm">85%</span>
+                            </div>
+                            <div class="bg-slate-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-accent-green to-primary-500 rounded-full h-2 w-[85%]"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-slate-300 font-medium">Critical Thinking</span>
+                                <span class="text-accent-green font-mono text-sm">88%</span>
+                            </div>
+                            <div class="bg-slate-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-accent-green to-primary-500 rounded-full h-2 w-[88%]"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Relevant Coursework -->
+                    <div class="mt-8 pt-8 border-t border-slate-700">
+                        <h4 class="text-lg font-bold text-slate-100 mb-4">Relevant Coursework</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-center text-slate-300">
+                                <i class="fas fa-robot text-primary-500 mr-3"></i>
+                                Advanced Machine Learning
+                            </div>
+                            <div class="flex items-center text-slate-300">
+                                <i class="fas fa-cogs text-accent-green mr-3"></i>
+                                Software Engineering
+                            </div>
+                            <div class="flex items-center text-slate-300">
+                                <i class="fas fa-cloud text-accent-purple mr-3"></i>
+                                Cloud Computing
+                            </div>
+                            <div class="flex items-center text-slate-300">
+                                <i class="fas fa-database text-primary-500 mr-3"></i>
+                                Database Management Systems
+                            </div>
+                            <div class="flex items-center text-slate-300">
+                                <i class="fas fa-network-wired text-accent-green mr-3"></i>
+                                Computer Networks
+                            </div>
+                            <div class="flex items-center text-slate-300">
+                                <i class="fas fa-code-branch text-accent-purple mr-3"></i>
+                                Data Structures & Algorithms
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Featured <span class="text-primary-500">Projects</span></h2>
+                <p class="text-slate-400 text-lg max-w-3xl mx-auto">
+                    Showcasing innovative solutions that demonstrate my technical skills and passion for problem-solving.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Image Watermarking System -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden card-hover border border-slate-700">
+                    <!-- AI and machine learning workspace with multiple monitors -->
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" alt="Machine learning workspace" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-100 mb-3">Image Watermarking System</h3>
+                        <p class="text-slate-400 mb-4">
+                            Developed a web application using Machine Learning to detect, add, or remove watermarks from images for content protection.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-primary-400">Machine Learning</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-green">Digital Image Processing</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-purple">Python</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-slate-500">
+                                <i class="fas fa-calendar mr-1"></i>Recent Project
+                            </span>
+                            <div class="space-x-2">
+                                <button class="text-primary-500 hover:text-primary-400 transition-colors">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                                <button class="text-primary-500 hover:text-primary-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Chatbot -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden card-hover border border-slate-700">
+                    <!-- Modern tech workspace with AI and chatbot development -->
+                    <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" alt="AI chatbot development workspace" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-100 mb-3">AI Chatbot</h3>
+                        <p class="text-slate-400 mb-4">
+                            Built a chatbot capable of understanding and responding to queries for customer support simulation using advanced NLP techniques.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-primary-400">Python</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-green">NLP</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-purple">AI</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-slate-500">
+                                <i class="fas fa-calendar mr-1"></i>Recent Project
+                            </span>
+                            <div class="space-x-2">
+                                <button class="text-primary-500 hover:text-primary-400 transition-colors">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                                <button class="text-primary-500 hover:text-primary-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Compression Utility -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden card-hover border border-slate-700">
+                    <!-- Software development workspace with code -->
+                    <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" alt="Software development workspace" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-100 mb-3">File Compression Utility</h3>
+                        <p class="text-slate-400 mb-4">
+                            Implemented Huffman Coding algorithm to reduce file sizes and optimize storage usage, showcasing data structures expertise.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-primary-400">C++</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-green">Algorithms</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-purple">Data Structures</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-slate-500">
+                                <i class="fas fa-calendar mr-1"></i>Academic Project
+                            </span>
+                            <div class="space-x-2">
+                                <button class="text-primary-500 hover:text-primary-400 transition-colors">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                                <button class="text-primary-500 hover:text-primary-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Language Translator Web App -->
+                <div class="bg-slate-800 rounded-xl overflow-hidden card-hover border border-slate-700">
+                    <!-- Modern web development workspace -->
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400" alt="Web development workspace" class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-100 mb-3">Language Translator Web App</h3>
+                        <p class="text-slate-400 mb-4">
+                            Created a multilingual translation app supporting multiple languages using Streamlit and Google Translate API integration.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-primary-400">Streamlit</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-green">Google Translate API</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-purple">Python</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-slate-500">
+                                <i class="fas fa-calendar mr-1"></i>Web Application
+                            </span>
+                            <div class="space-x-2">
+                                <button class="text-primary-500 hover:text-primary-400 transition-colors">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                                <button class="text-primary-500 hover:text-primary-400 transition-colors">
+                                    <i class="fab fa-github"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Professional <span class="text-primary-500">Experience</span></h2>
+                <p class="text-slate-400 text-lg max-w-3xl mx-auto">
+                    Gaining hands-on experience in cutting-edge technology through internships and real-world projects.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-slate-900 rounded-xl p-8 border border-slate-700 card-hover">
+                    <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-100 mb-2">AI & Web Development Intern</h3>
+                            <p class="text-primary-500 font-semibold text-lg mb-2">DATA-I, National Science and Technology Park (NSTP)</p>
+                            <p class="text-slate-400 mb-4">Jun 2025 – Aug 2025 | Islamabad, Pakistan</p>
+                        </div>
+                        <div class="shrink-0">
+                            <span class="bg-accent-green/20 text-accent-green px-3 py-1 rounded-full text-sm font-medium">
+                                Upcoming Internship
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-robot text-primary-500 mt-1 mr-3"></i>
+                            <p class="text-slate-300">
+                                Worked on Large Language Model (LLM) integration for various applications, gaining expertise in AI model deployment and optimization.
+                            </p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-comments text-accent-green mt-1 mr-3"></i>
+                            <p class="text-slate-300">
+                                Developed and maintained an AI-powered chatbot for customer interaction, implementing natural language processing and conversational AI techniques.
+                            </p>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-code text-accent-purple mt-1 mr-3"></i>
+                            <p class="text-slate-300">
+                                Contributed to front-end development using HTML, CSS, JavaScript, and backend technologies, creating full-stack web solutions.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t border-slate-700">
+                        <h4 class="text-sm font-semibold text-slate-400 mb-3">TECHNOLOGIES USED</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-primary-400">Large Language Models</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-green">NLP</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-purple">JavaScript</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-primary-400">HTML/CSS</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-green">Backend Development</span>
+                            <span class="tech-badge px-3 py-1 rounded-full text-sm text-accent-purple">AI Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Achievements & <span class="text-primary-500">Certifications</span></h2>
+                <p class="text-slate-400 text-lg max-w-3xl mx-auto">
+                    Continuously enhancing my skills through professional certifications and specialized training programs.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Google Data Analytics -->
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 card-hover">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fab fa-google text-3xl text-accent-green"></i>
+                        <span class="bg-accent-green/20 text-accent-green px-2 py-1 rounded text-xs font-medium">Coursera</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-2">Google Data Analytics Certificate</h3>
+                    <p class="text-slate-400 text-sm mb-4">Comprehensive program covering data analysis, visualization, and statistical methods.</p>
+                    <div class="flex items-center text-sm text-slate-500">
+                        <i class="fas fa-certificate mr-2"></i>
+                        Professional Certificate
+                    </div>
+                </div>
+
+                <!-- Python Certificate -->
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 card-hover">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fab fa-python text-3xl text-primary-500"></i>
+                        <span class="bg-primary-500/20 text-primary-500 px-2 py-1 rounded text-xs font-medium">FAST University</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-2">Introduction to Python: Basic to Advanced</h3>
+                    <p class="text-slate-400 text-sm mb-4">Comprehensive Python programming course from fundamentals to advanced concepts.</p>
+                    <div class="flex items-center text-sm text-slate-500">
+                        <i class="fas fa-certificate mr-2"></i>
+                        University Certificate
+                    </div>
+                </div>
+
+                <!-- Prompt Engineering -->
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 card-hover">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fas fa-brain text-3xl text-accent-purple"></i>
+                        <span class="bg-accent-purple/20 text-accent-purple px-2 py-1 rounded text-xs font-medium">OpenAI</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-2">Prompt Engineering for AI Applications</h3>
+                    <p class="text-slate-400 text-sm mb-4">Advanced techniques for effective AI prompt design and optimization.</p>
+                    <div class="flex items-center text-sm text-slate-500">
+                        <i class="fas fa-certificate mr-2"></i>
+                        AI Specialization
+                    </div>
+                </div>
+
+                <!-- AI Foundations -->
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 card-hover">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fab fa-linkedin text-3xl text-primary-500"></i>
+                        <span class="bg-primary-500/20 text-primary-500 px-2 py-1 rounded text-xs font-medium">LinkedIn Learning</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-2">Artificial Intelligence Foundations</h3>
+                    <p class="text-slate-400 text-sm mb-4">Fundamental concepts and applications of artificial intelligence.</p>
+                    <div class="flex items-center text-sm text-slate-500">
+                        <i class="fas fa-certificate mr-2"></i>
+                        Professional Learning
+                    </div>
+                </div>
+
+                <!-- Deep Learning -->
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 card-hover">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fas fa-network-wired text-3xl text-accent-green"></i>
+                        <span class="bg-accent-green/20 text-accent-green px-2 py-1 rounded text-xs font-medium">DeepLearning.AI</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-2">Deep Learning Specialization</h3>
+                    <p class="text-slate-400 text-sm mb-4">Comprehensive deep learning program covering neural networks and advanced architectures.</p>
+                    <div class="flex items-center text-sm text-slate-500">
+                        <i class="fas fa-certificate mr-2"></i>
+                        Specialization Program
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 card-hover">
+                    <div class="flex items-start justify-between mb-4">
+                        <i class="fab fa-free-code-camp text-3xl text-accent-purple"></i>
+                        <span class="bg-accent-purple/20 text-accent-purple px-2 py-1 rounded text-xs font-medium">freeCodeCamp</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-2">Responsive Web Development Bootcamp</h3>
+                    <p class="text-slate-400 text-sm mb-4">Intensive program covering modern web development practices and responsive design.</p>
+                    <div class="flex items-center text-sm text-slate-500">
+                        <i class="fas fa-certificate mr-2"></i>
+                        Bootcamp Certificate
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Get In <span class="text-primary-500">Touch</span></h2>
+                <p class="text-slate-400 text-lg max-w-3xl mx-auto">
+                    Let's connect and discuss opportunities, collaborations, or just have a conversation about technology and innovation.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <!-- Email -->
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-700 card-hover text-center">
+                    <div class="w-16 h-16 bg-primary-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-2xl text-primary-500"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-2">Email</h3>
+                    <p class="text-slate-400 mb-4">Drop me a line anytime</p>
+                    <a href="mailto:muhammadibtesam51@gmail.com" class="text-primary-500 hover:text-primary-400 transition-colors font-medium">
+                        muhammadibtesam51@gmail.com
+                    </a>
+                </div>
+
+                <!-- LinkedIn -->
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-700 card-hover text-center">
+                    <div class="w-16 h-16 bg-accent-green/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-linkedin text-2xl text-accent-green"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-2">LinkedIn</h3>
+                    <p class="text-slate-400 mb-4">Connect professionally</p>
+                    <a href="https://linkedin.com/in/muhammadibtesam" target="_blank" class="text-accent-green hover:text-accent-green/80 transition-colors font-medium">
+                        linkedin.com/in/muhammadibtesam
+                    </a>
+                </div>
+
+                <!-- GitHub -->
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-700 card-hover text-center">
+                    <div class="w-16 h-16 bg-accent-purple/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-github text-2xl text-accent-purple"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-100 mb-2">GitHub</h3>
+                    <p class="text-slate-400 mb-4">View my projects</p>
+                    <a href="https://github.com/ibtesamiqbal" target="_blank" class="text-accent-purple hover:text-accent-purple/80 transition-colors font-medium">
+                        github.com/ibtesamiqbal
+                    </a>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-16">
+                <div class="bg-gradient-to-r from-primary-500 to-accent-purple p-8 rounded-xl max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white mb-4">Ready to Collaborate?</h3>
+                    <p class="text-slate-200 mb-6">
+                        I'm always open to discussing new opportunities, innovative projects, or just sharing knowledge about technology.
+                    </p>
+                    <a href="mailto:muhammadibtesam51@gmail.com" class="bg-white text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors inline-flex items-center">
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Start a Conversation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-slate-400 mb-4 md:mb-0">
+                    <p>&copy; 2024 Muhammad Ibtesam. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="mailto:muhammadibtesam51@gmail.com" class="text-slate-400 hover:text-primary-500 transition-colors">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/muhammadibtesam" target="_blank" class="text-slate-400 hover:text-accent-green transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://github.com/ibtesamiqbal" target="_blank" class="text-slate-400 hover:text-accent-purple transition-colors">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Animate skill bars on scroll
+            const skillBars = document.querySelectorAll('.skill-bar');
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const skillObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.classList.contains('w-[90%]') ? '90%' :
+                                                  entry.target.classList.contains('w-[85%]') ? '85%' :
+                                                  entry.target.classList.contains('w-[80%]') ? '80%' :
+                                                  entry.target.classList.contains('w-[75%]') ? '75%' :
+                                                  entry.target.classList.contains('w-[95%]') ? '95%' :
+                                                  entry.target.classList.contains('w-[88%]') ? '88%' : '90%';
+                    }
+                });
+            }, observerOptions);
+
+            skillBars.forEach(bar => {
+                skillObserver.observe(bar);
+            });
+
+            // Add fade-in animation to sections on scroll
+            const sections = document.querySelectorAll('section');
+            const sectionObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+            // TODO: Implement business logic for form submissions
+            // TODO: Add API integration for dynamic content loading
+            // TODO: Implement state management for interactive features
+        })();
+    </script>
+</body>
+</html>
