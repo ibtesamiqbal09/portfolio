@@ -13,14 +13,9 @@ export default function Hero() {
     }
   };
 
-  // Function to handle CV download
-  const handleDownloadCV = () => {
-    const link = document.createElement("a");
-    link.href = "/ibtesam-CV.pdf";
-    link.download = "ibtesam-CV.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  // Function to handle CV preview/download
+  const handleViewCV = () => {
+    window.open("/ibtesam-CV.pdf", "_blank");
   };
 
   return (
@@ -89,7 +84,7 @@ export default function Hero() {
               Get In Touch
             </button>
             <button
-              onClick={handleDownloadCV}
+              onClick={handleViewCV}
               className="bg-accent-purple hover:bg-accent-green text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center"
             >
               <svg
@@ -102,10 +97,16 @@ export default function Hero() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M12 16v-8m0 8l-4-4m4 4l4-4M4 20h16"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                 />
               </svg>
-              Download CV
+              View CV
             </button>
           </div>
         </div>
