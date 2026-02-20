@@ -39,16 +39,9 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="animate-fade-in">
-          {/* Professional headshot */}
-          <img
-            src="/images/pp.jpg"
-            alt="Muhammad Ibtesam"
-            className="w-32 h-32 rounded-full mx-auto mb-8 border-4 border-primary-500 shadow-xl"
-          />
-
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-slate-100">Muhammad</span>
-            <span className="text-primary-500"> Ibtesam</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 break-words">
+            <span className="text-slate-100">Muhammad </span>
+            <span className="text-primary-500">Ibtesam</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 mb-8 font-mono">
             Backend Developer | AI Enthusiast | Python Engineer

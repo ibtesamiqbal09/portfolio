@@ -14,10 +14,10 @@ export default function Home() {
       <Navigation />
       <Hero />
       <About />
-      <Education />
       <Skills />
-      <Projects />
       <Experience />
+      <Projects />
+      <Education />
       <Achievements />
       <Contact />
 
@@ -26,7 +26,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-slate-400 mb-4 md:mb-0">
-              <p>&copy; 2024 Muhammad Ibtesam. All rights reserved.</p>
+              <p>&copy; 2026 Muhammad Ibtesam. All rights reserved.</p>
             </div>
             <div className="flex space-x-6">
               <a

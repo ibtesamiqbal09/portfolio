@@ -9,6 +9,8 @@ export default function Projects() {
       alt: "Machine learning workspace",
       tags: ["Machine Learning", "Digital Image Processing", "Python"],
       type: "Recent Project",
+      githubUrl:
+        "https://github.com/muhammadharoon26/DIP_Image-Watermark-Adder__Remover_Semester-Project",
     },
     {
       title: "AI Chatbot",
@@ -19,6 +21,18 @@ export default function Projects() {
       alt: "AI chatbot development workspace",
       tags: ["Python", "NLP", "AI"],
       type: "Recent Project",
+      githubUrl: "https://github.com/codlydev/Chatbot",
+    },
+    {
+      title: "Online Dispute Resolver (ODR)",
+      description:
+        "Developed a comprehensive Online Dispute Resolution platform to facilitate efficient conflict resolution and mediation services through digital channels.",
+      image:
+        "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400",
+      alt: "Legal tech and dispute resolution",
+      tags: ["Web Development", "Full Stack", "Legal Tech"],
+      type: "Web Application",
+      githubUrl: "https://github.com/ibtesamiqbal09/Project",
     },
     {
       title: "File Compression Utility",
@@ -29,6 +43,7 @@ export default function Projects() {
       alt: "Software development workspace",
       tags: ["C++", "Algorithms", "Data Structures"],
       type: "Academic Project",
+      githubUrl: "https://github.com/muhammadharoon26/File-Compression-tool",
     },
     {
       title: "Language Translator Web App",
@@ -39,6 +54,7 @@ export default function Projects() {
       alt: "Web development workspace",
       tags: ["Streamlit", "Google Translate API", "Python"],
       type: "Web Application",
+      githubUrl: "https://github.com/codlydev/Translator",
     },
   ];
 
@@ -79,8 +95,8 @@ export default function Projects() {
                         tagIndex % 3 === 0
                           ? "text-primary-400"
                           : tagIndex % 3 === 1
-                          ? "text-accent-green"
-                          : "text-accent-purple"
+                            ? "text-accent-green"
+                            : "text-accent-purple"
                       }`}
                     >
                       {tag}
@@ -104,7 +120,7 @@ export default function Projects() {
                   </span>
                   <div className="space-x-2">
                     <a
-                      href="https://github.com/ibtesamiqbal"
+                      href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary-500 hover:text-primary-400 transition-colors"

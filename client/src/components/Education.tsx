@@ -1,6 +1,6 @@
 export default function Education() {
   return (
-    <section id="education" className="py-20 bg-slate-900">
+    <section id="education" className="py-20 bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -28,7 +28,7 @@ export default function Education() {
                     National University of Sciences & Technology
                   </p>
                   <p className="text-slate-400 mb-4">
-                    Expected 2026 | Islamabad, Pakistan
+                    2022 - 2026 | Islamabad, Pakistan
                   </p>
                   <div className="flex flex-wrap gap-2 justify-end">
                     <span className="tech-badge px-3 py-1 rounded-full text-sm text-primary-400">

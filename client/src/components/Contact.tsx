@@ -57,9 +57,10 @@ export default function Contact() {
               href="https://www.linkedin.com/in/muhammadibtesam/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-accent-green hover:text-accent-green/80 transition-colors font-medium"
+              className="text-accent-green hover:text-accent-green/80 transition-colors font-medium text-sm block w-full px-2 cursor-pointer"
             >
-              linkedin.com/in/ muhammadibtesam
+              <span className="inline-block">linkedin.com/in/</span>
+              <span className="inline-block">muhammadibtesam</span>
             </a>
           </div>
 
